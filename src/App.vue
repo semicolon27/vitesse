@@ -11,5 +11,16 @@ useHead({
 </script>
 
 <template>
-  <router-view />
+  <el-config-provider>
+    <router-view />
+  </el-config-provider>
 </template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600&display=swap');
+.el-card {
+    --el-card-bg-color: white !important;
+}
+body {
+  font-family: "Montserrat", sans-serif !important; /* this was it */
+}
+</style>

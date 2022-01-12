@@ -11,6 +11,9 @@ const router = useRouter()
 <template>
   <div>
     Hello World
+    <el-button type="primary">
+      Primary
+    </el-button>
   </div>
 </template>
 

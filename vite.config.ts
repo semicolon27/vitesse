@@ -4,7 +4,7 @@ import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+// import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-md'
@@ -12,6 +12,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
@@ -43,6 +44,7 @@ export default defineConfig({
         '@vueuse/core',
         'vitest',
       ],
+      resolvers: [ElementPlusResolver()],
       dts: 'src/auto-imports.d.ts',
     }),
 
@@ -58,10 +60,11 @@ export default defineConfig({
       resolvers: [
         // auto import icons
         // https://github.com/antfu/unplugin-icons
-        IconsResolver({
-          componentPrefix: '',
-          // enabledCollections: ['carbon']
-        }),
+        // IconsResolver({
+        //   componentPrefix: '',
+        //   // enabledCollections: ['carbon']
+        // }),
+        ElementPlusResolver(),
       ],
 
       dts: 'src/components.d.ts',
